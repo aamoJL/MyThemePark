@@ -11,7 +11,7 @@ http://student.labranet.jamk.fi/~mapas/opintojaksot/kevat2016/olio/index.php?pag
   * Merkit
   * Muita pelaajia(oikeita? AI?)
   * Napit
-   ** Panosslider
+   * Panosslider
    * tuolinvalinta
    * Hit
    * Stand
