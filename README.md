@@ -5,6 +5,7 @@ olio-harjoitustyö
 * blackjack
 * http://student.labranet.jamk.fi/~mapas/opintojaksot/kevat2016/olio/index.php?page=harjoitustyo
 <br>
+<br>
 * Alkuvalikko
 * Blackjack
   * Tuolit
