@@ -6,11 +6,11 @@ olio-harjoitustyö
 http://student.labranet.jamk.fi/~mapas/opintojaksot/kevat2016/olio/index.php?page=harjoitustyo
 
 * Alkuvalikko
- * Blackjack
+* Blackjack
   * Tuolit
   * Merkit
   * Muita pelaajia(oikeita? AI?)
-  * Napit
+  * Napit:
    * Panosslider
    * tuolinvalinta
    * Hit
@@ -18,18 +18,18 @@ http://student.labranet.jamk.fi/~mapas/opintojaksot/kevat2016/olio/index.php?pag
    * Double down
    * Split
    * surrender
- * Pankki
+* Pankki
   * Lainan otto
   * Oma rahatilanne
   * Lainan maksu takaisin
   * Lainalle korko?
- * Kolikkopeli?
+* Kolikkopeli?
   * Panos
-  * Napit
+  * Napit:
    * Play
    * Double
    * Quit
- * Tilastot
+* Tilastot
   * Pelaajien rahamäärät
   * Pelaajien voitot
   * Pelaajien voittoprosentit
