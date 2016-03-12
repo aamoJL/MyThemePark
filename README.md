@@ -38,3 +38,22 @@ olio-harjoitustyö
  * Ohjeet
   * Kuinka pelata blackjack
   * Kuinka pelata kolikkopeli
+
+
+Luokat:
+* Pelaaja
+ * Ihminen
+ * AI
+ * Talo
+ * :
+ * rahat
+ * nimi
+ * tekoäly
+ * lainat
+ * pelatut pelit
+ * voitot
+* Kortti
+ * maa
+ * numero
+* Pakka?
+* Kolikkopeli
