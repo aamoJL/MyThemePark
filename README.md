@@ -6,6 +6,8 @@ olio-harjoitustyö
 * http://student.labranet.jamk.fi/~mapas/opintojaksot/kevat2016/olio/index.php?page=harjoitustyo<br>
 https://www.draw.io/
 <br>
+Mockup<br>
+https://www.fluidui.com/editor/live/preview/p_ksFA18gc9FZOPXbWZzm6QCTVAXIHziwt.1457803247118
 <br>
 * Alkuvalikko
 * Blackjack
