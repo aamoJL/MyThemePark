@@ -47,6 +47,7 @@ Luokat:
  * Talo
  * :
  * rahat
+ * pelimerkit
  * nimi
  * tekoäly
  * lainat
@@ -57,3 +58,12 @@ Luokat:
  * numero
 * Pakka?
 * Kolikkopeli
+
+
+Tilastot:
+* tiedostoon
+* rahat
+* pelimerkit
+* voitot
+* voitto%
+* lainat
