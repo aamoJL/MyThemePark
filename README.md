@@ -1,5 +1,9 @@
 # MyOwnThemePark
 olio-harjoitustyö
+###Powerpoint
+https://docs.google.com/presentation/d/1ZiRTiRFW9gYr9GN9F5EYZKT1qs8-2IwYxPE975h1Nu0/edit?usp=sharing
+
+
 
 * Pokeri?
 * blackjack
