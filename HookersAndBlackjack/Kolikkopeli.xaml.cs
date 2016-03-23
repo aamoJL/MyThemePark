@@ -26,5 +26,10 @@ namespace HookersAndBlackjack
         {
             this.InitializeComponent();
         }
+
+        private void textBox_TextChanged(System.Object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
