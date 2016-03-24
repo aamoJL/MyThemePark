@@ -98,6 +98,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Blackjack.xaml.cs">
+      <DependentUpon>Blackjack.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Kolikkopeli.xaml.cs">
       <DependentUpon>Kolikkopeli.xaml</DependentUpon>
     </Compile>
@@ -128,6 +131,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Blackjack.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Kolikkopeli.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

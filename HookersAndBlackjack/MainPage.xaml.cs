@@ -26,10 +26,7 @@ namespace HookersAndBlackjack
         public MainPage()
         {
             this.InitializeComponent();
-        }
-
-        private void Deal_Click(object sender, RoutedEventArgs e)
-        {
+            /*
             ushort n;
             Random rand = new Random();
 
@@ -85,15 +82,6 @@ namespace HookersAndBlackjack
             Pack.AddRange(Clubs);
             DebugScreen.Text += "Pack dun.\n";
 
-            //Printataan koko pakka huvin vuoksi.
-            /*
-            foreach (Kortti k in Pack)
-            {
-                Console.Write(k.ToString());
-            }
-            Console.WriteLine();
-            Console.WriteLine("\nAnd now randomized.");
-            */
             //Fisher-Yates sekoitus
             n = (ushort)Pack.Count;
             while (n > 1)
@@ -105,14 +93,6 @@ namespace HookersAndBlackjack
                 Pack[n] = T;
             }
             DebugScreen.Text += "Shuffle dun.\n";
-
-            //Nyt printataan koko pakka uudestaan
-            /*
-            foreach (Kortti k in Pack)
-            {
-                Console.Write(k.ToString());
-            }
-            */
             ushort x = (ushort)Pack.Count;
             for (n = 0; n < 5; n++)
             {
@@ -129,6 +109,19 @@ namespace HookersAndBlackjack
             {
                 DebugScreen.Text += k.ToString();
             }
+            */
+        }
+
+        private void KolikkopeliButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Lisää ja navigoi uudelle sivulle.
+            this.Frame.Navigate(typeof(Kolikkopeli));
+        }
+
+        private void BlackjackButton_Click(object sender, RoutedEventArgs e)
+        {
+            // lisää ja navigoi uudelle sivulle.
+            this.Frame.Navigate(typeof(Blackjack));
         }
     }
 }

@@ -12,7 +12,10 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Button x:Name="Deal" Grid.Row="1" HorizontalAlignment="Center" Click="Deal_Click">Deal</Button>
         <TextBox x:Name="DebugScreen" Grid.Row="0" TextWrapping="Wrap"></TextBox>
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button x:Name="KolikkopeliButton" Content="Kolikkopeli" Width="100" Margin="5" Click="KolikkopeliButton_Click" />
+            <Button x:Name="BlackjackButton" Content="Blackjack" Width="100" Margin="5" Click="BlackjackButton_Click" />
+        </StackPanel>
     </Grid>
 </Page>
