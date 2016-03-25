@@ -8,6 +8,11 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="DebugScreen" Grid.Row="0"></TextBlock>
+        <Button x:Name="Deal" Grid.Row="1" Margin="5" HorizontalAlignment="Center" Click="Deal_Click">Deal</Button>
     </Grid>
 </Page>
