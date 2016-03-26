@@ -20,11 +20,6 @@ namespace HookersAndBlackjack.Model
             Number = number;
         }
 
-        ~Kortti()
-        {
-            Debug.WriteLine("Object removed.");
-        }
-
         public override string ToString()
         {
             return "\nSuit: " + Suit + ", Number: " + Number;

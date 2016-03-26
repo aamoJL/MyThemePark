@@ -54,5 +54,18 @@ namespace HookersAndBlackjack
         {
 
         }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            // get root frame (which shows pages)
+            Frame rootFrame = Window.Current.Content as Frame;
+            // did we get it correctly
+            if (rootFrame == null) return;
+            // navigate back if possible
+            if (rootFrame.CanGoBack)
+            {
+                rootFrame.GoBack();
+            }
+        }
     }
 }
