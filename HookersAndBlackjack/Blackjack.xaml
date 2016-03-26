@@ -9,13 +9,15 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
-        <TextBlock x:Name="DebugScreen" Grid.Row="0" Margin="5" ></TextBlock>
-        <RelativePanel Grid.Row="1" HorizontalAlignment="Center">
-            <Button x:Name="Deal" Margin="5" Click="Deal_Click">Deal</Button>
-            <Button x:Name="DebugButton" Margin="5" RelativePanel.RightOf="Deal" Click="DebugButton_Click">Debug</Button>
+        <Button x:Name="DebugButton" Margin="5" Width="75" HorizontalAlignment="Right" Click="DebugButton_Click">Debug</Button>
+        <Button x:Name="Deal" Margin="5" Width="75" Click="Deal_Click">Deal</Button>
+        <TextBlock x:Name="DebugScreen" Grid.Row="1" Margin="5" ></TextBlock>
+        <RelativePanel Grid.Row="2" HorizontalAlignment="Center">
+            <Button x:Name="Hit" Margin="5" Width="75" Click="Hit_Click">Hit</Button>
         </RelativePanel>
     </Grid>
 </Page>

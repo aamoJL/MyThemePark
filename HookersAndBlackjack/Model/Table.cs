@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using System.Diagnostics;
+using Windows.UI.Popups;
+
 namespace HookersAndBlackjack.Model
 {
     class Table
@@ -23,10 +26,45 @@ namespace HookersAndBlackjack.Model
         //Ylimääräinen kortti. Sekoitusta varten.
         private Kortti T = new Kortti();
         
+        // Tämä kutsutaan sivun avautuessa. Avaa popup ikkunan jonne tiedot laitetaan. Tai peritään.
+        public async void Start ()
+        {
+            // create the message dialog and set its content
+            var messageDialog = new MessageDialog("You thought your DDOS attack would succeed, it did not. You thought you could beat us, you can not. You can only hope to contain us, and fail.");
+            // add commands and set theur callbacks; both buttons use the same callback function
+            messageDialog.Commands.Add(new UICommand(
+                "Ok",
+                new UICommandInvokedHandler(this.CommandInvokedHandler)));
+
+            messageDialog.Commands.Add(new UICommand(
+                "Cancel",
+                new UICommandInvokedHandler(this.CommandInvokedHandler)));
+
+            // set the command that will be invoked by default
+            messageDialog.DefaultCommandIndex = 0;
+            // set the command to be invoked when escape is pressed
+            messageDialog.DefaultCommandIndex = 1;
+
+            await messageDialog.ShowAsync();
+        }
+
+        private void CommandInvokedHandler(IUICommand command)
+        {
+            // Display message showing the label of the command that was invoked
+            Debug.WriteLine("The '" + command.Label + "' command has been selected.");
+        }
 
         public void Deal (ushort NumberOfPacks)
         {
+            Spades.Clear();
+            Hearts.Clear();
+            Diamonds.Clear();
+            Clubs.Clear();
+            Pack.Clear();
+            Hand.Clear();
+
             DebugMessage = "";
+            
             //Spades
             for (ushort i = 0; i < 13; i++)
             {

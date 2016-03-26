@@ -12,9 +12,10 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Popups;
+// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 using HookersAndBlackjack.Model;
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace HookersAndBlackjack
 {
@@ -27,6 +28,8 @@ namespace HookersAndBlackjack
         public Blackjack()
         {
             this.InitializeComponent();
+            House.Start();
+            House.Deal(1);
         }
 
         private void Deal_Click(object sender, RoutedEventArgs e)
@@ -45,6 +48,11 @@ namespace HookersAndBlackjack
             {
                 DebugScreen.Text = "No Data";
             }
+        }
+
+        private void Hit_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
