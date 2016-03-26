@@ -14,7 +14,6 @@ namespace HookersAndBlackjack.Model
         /// </summary>
         private int AI { get; set; }
 
-
         public Player(string name, int ai)
         {
             Name = name;
