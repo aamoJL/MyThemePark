@@ -24,7 +24,9 @@ namespace HookersAndBlackjack
     public sealed partial class Kolikkopeli : Page
     {
         KPeli kolikkopeli = new KPeli();
+        int winnings = 0;
         //Player player = "valittu pelaaja classi";
+
         public Kolikkopeli()
         {
             this.InitializeComponent();
@@ -40,43 +42,62 @@ namespace HookersAndBlackjack
         private void button_Play_Click(object sender, RoutedEventArgs e)
         {
             /*
-            if (player.bet(int.Parse(textBlock_Bet.Text)) == true)
+            if (/*player.bet(int.Parse(textBlock_Bet.Text)) == true)
             {
+                winnings = 0;
+                //button_Double.Disabled
                 int bet = int.Parse(textBlock_Bet.Text);
                 string prize = kolikkopeli.Draw();
                 int prize_int = int.Parse(prize);
+
+                //Kuvien vaihto
+                Images(int.Parse(prize[0].ToString()), image1);
+                Images(int.Parse(prize[1].ToString()), image2);
+                Images(int.Parse(prize[2].ToString()), image3);
                 
-                //Logitekstin muutos
-                if(prize_int == 555)
+                //Voitot
+                if (prize_int == 555)
                 {
-                    textBlock_Log.Text += "You Won" + bet * 1;
+                    winnings = bet * 1;
+                    textBlock_Log.Text += "You Won" + winnings+". Do You want to double?";
+                    //player.AddMoney(winnings);
+                    //button_Double.Visible
+
+                    
                 }
                 else if (prize_int == 444)
                 {
-                    textBlock_Log.Text += "You Won" + bet * 2.5;
+                    winnings = bet * 2;
+                    textBlock_Log.Text += "You Won" + winnings+". Do You want to double?";
+                    //player.AddMoney(winnings);
+                    //button_Double.Visible
                 }
                 else if (prize_int == 333)
                 {
-                    textBlock_Log.Text += "You Won" + bet * 5;
+                    winnings = bet * 5;
+                    textBlock_Log.Text += "You Won" + winnings + ". Do You want to double?";
+                    //player.AddMoney(winnings);
+                    //button_Double.Visible
                 }
                 else if (prize_int == 222)
                 {
-                    textBlock_Log.Text += "You Won" + bet * 10;
+                    winnings = bet * 10;
+                    textBlock_Log.Text += "You Won" + winnings + ". Do You want to double?";
+                    //player.AddMoney(winnings);
+                    //button_Double.Visible
                 }
                 else if (prize_int == 111)
                 {
-                    textBlock_Log.Text += "You Won" + bet * 25;
+                    winnings = bet * 25;
+                    textBlock_Log.Text += "You Won" + winnings + ". Do You want to double?";
+                    //player.AddMoney(winnings);
+                    //button_Double.Visible
                 }
                 else
                 {
                     textBlock_Log.Text += "You lost"+bet;
+                    //button_Double.Disabled
                 }
-
-
-                //image1
-                Images(int.Parse(prize[0].ToString()), image1);
-                Images(int.Parse(prize[1].ToString()), image2);
-                Images(int.Parse(prize[2].ToString()), image3);
             }
             else
             {
@@ -88,31 +109,48 @@ namespace HookersAndBlackjack
         //Kuvarullan kuvien vaihto
         private void Images(int i, Image img)
         {
-        /*
-            if (i == 5)
-            {
-                img = kuva5;
-            }
-            else if (i == 4)
-            {
-                img = kuva4;
-            }
-            else if (i == 3)
-            {
-                img = kuva3;
-            }
-            else if (i == 2)
-            {
-                img = kuva2;
-            }
-            else
-            {
-                img = kuva1;
-            }
-        */
+            /*
+                if (i == 5)
+                {
+                    img = kuva5;
+                }
+                else if (i == 4)
+                {
+                    img = kuva4;
+                }
+                else if (i == 3)
+                {
+                    img = kuva3;
+                }
+                else if (i == 2)
+                {
+                    img = kuva2;
+                }
+                else
+                {
+                    img = kuva1;
+                }
+            */
         }
+        //Tuplaus
+        /*
+                //button_Double.isPressed())
+                {
+                    if(kolikkopeli.Double() == 1)
+                    {
+                        player.TakeMoney(winnings);
+                        winnings = winnings * 2;
+                        //player.AddMoney(winnings);
+                    }
+                    else
+                    {
+                        player.TakeMoney(winnings)
+                    }
+                }
+
+                    */
     }
-    
-    }
+
 }
+
 

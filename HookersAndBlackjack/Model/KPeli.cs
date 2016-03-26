@@ -8,7 +8,13 @@ namespace HookersAndBlackjack.Model
 {
     public class KPeli
     {
-
+        //random numerogeneraattori
+        public int Rand(int first, int last)
+        {
+            Random random = new Random();
+            int rnd = random.Next(first - last);
+            return rnd;
+        }
         //Play
         public string Draw()
         {
@@ -22,10 +28,9 @@ namespace HookersAndBlackjack.Model
             */
 
             //Select Random
-            Random random = new Random();
-            int rnd = random.Next(1 - 201);
 
             //Draw
+            int rnd = Rand(1, 201);
             if (160 < rnd || rnd < 179)
             {
                 return "555";
@@ -51,7 +56,7 @@ namespace HookersAndBlackjack.Model
                 string s = "";
                 for (int i = 0; i < 3; i++)
                 {
-                    rnd = random.Next(1 - 6);
+                    rnd = Rand(1,6);
                     if (s.Contains(rnd.ToString()) == true)
                     {
                         i--;
@@ -65,6 +70,18 @@ namespace HookersAndBlackjack.Model
                 return s;
             }
         }
+        public int Double()
+        {
+            int rnd = Rand(1, 101);
+            if(rnd < 25)
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
     }
 }
 
@@ -73,9 +90,11 @@ namespace HookersAndBlackjack.Model
 1. 25x	0.5%	1
 2. 10x	2%		4
 3. 5x	3.5%	7
-4. 2,5x	5%		10
+4. 2x	5%		10
 5. 1x	9%		18
 6. 0x	80%		160
+
+Double 24%
 
 160-178-188-195-199-200
 */
