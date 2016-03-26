@@ -109,6 +109,8 @@
     </Compile>
     <Compile Include="Model\KPeli.cs" />
     <Compile Include="Model\Kortti.cs" />
+    <Compile Include="Model\Player.cs" />
+    <Compile Include="Model\Statics.cs" />
     <Compile Include="Model\Table.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

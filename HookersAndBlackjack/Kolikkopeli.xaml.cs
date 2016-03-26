@@ -42,7 +42,7 @@ namespace HookersAndBlackjack
         private void button_Play_Click(object sender, RoutedEventArgs e)
         {
             /*
-            if (/*player.bet(int.Parse(textBlock_Bet.Text)) == true)
+            if (player.bet(int.Parse(textBlock_Bet.Text)) == true)
             {
                 winnings = 0;
                 //button_Double.Disabled
@@ -132,6 +132,19 @@ namespace HookersAndBlackjack
                 }
             */
         }
+
+        private void backButton_Click(object sender, RoutedEventArgs e)
+        {
+            // get root frame (which show pages)
+            Frame rootFrame = Window.Current.Content as Frame;
+            // did we get it correctly
+            if (rootFrame == null) return;
+            // navigate back if possible
+            if (rootFrame.CanGoBack)
+            {
+                rootFrame.GoBack();
+            }
+        }
         //Tuplaus
         /*
                 //button_Double.isPressed())
@@ -149,6 +162,7 @@ namespace HookersAndBlackjack
                 }
 
                     */
+
     }
 
 }
