@@ -8,9 +8,9 @@ namespace HookersAndBlackjack.Model
 {
     public class KPeli
     {
-        
+
         //Play
-        public void KPeli_play(int bet)
+        public string Draw()
         {
             /*
             //Take bet
@@ -19,42 +19,56 @@ namespace HookersAndBlackjack.Model
                 Pelaaja.money -= bet;
             }
             else { TextBlock_Log.Text += "\nError: Not enough money."; }
+            */
 
             //Select Random
             Random random = new Random();
             int rnd = random.Next(1 - 201);
 
             //Draw
-            if (160 < rnd < 179) { bet 1x}
-            else if (178 < rnd < 189) { bet 2.5x}
-            else if (188 < rnd < 196) { bet 5x}
-            else if (195 < rnd < 200) { bet 10x}
-            else if (200) { voitit pelin, bet 25x}
+            if (160 < rnd || rnd < 179)
+            {
+                return "555";
+            }
+            else if (178 < rnd || rnd < 189)
+            {
+                return "444";
+            }
+            else if (188 < rnd || rnd < 196)
+            {
+                return "333";
+            }
+            else if (195 < rnd || rnd < 200)
+            {
+                return "222";
+            }
+            else if (rnd == 200)
+            {
+                return "111";
+            }
             else
             {
-                for (int i = 0; i < 4; i++)
+                string s = "";
+                for (int i = 0; i < 3; i++)
                 {
                     rnd = random.Next(1 - 6);
-
-
-                    switch (rnd)
+                    if (s.Contains(rnd.ToString()) == true)
                     {
-                        case 1: kuva1 = kvua1;
-                            break;
-                        case 2: kuva2 = kvua2;
-                            break;
-                        case 3: kuva3 = kvua3;
-                            break;
-                        default: TextBlock_Log.Text += "Error: error";
-                            break;
+                        i--;
+                    }
+                    else
+                    {
+                        s += "i";
+                        s += rnd;
                     }
                 }
+                return s;
             }
-            */
         }
     }
 }
 
+//voittotaulukko
 /*
 1. 25x	0.5%	1
 2. 10x	2%		4
