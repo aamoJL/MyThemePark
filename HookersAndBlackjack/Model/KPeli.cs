@@ -31,19 +31,19 @@ namespace HookersAndBlackjack.Model
 
             //Draw
             int rnd = Rand(1, 201);
-            if (160 < rnd || rnd < 179)
+            if (160 < rnd && rnd < 179)
             {
                 return "555";
             }
-            else if (178 < rnd || rnd < 189)
+            else if (178 < rnd && rnd < 189)
             {
                 return "444";
             }
-            else if (188 < rnd || rnd < 196)
+            else if (188 < rnd && rnd < 196)
             {
                 return "333";
             }
-            else if (195 < rnd || rnd < 200)
+            else if (195 < rnd && rnd < 200)
             {
                 return "222";
             }
