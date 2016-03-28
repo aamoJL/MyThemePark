@@ -39,18 +39,16 @@ namespace HookersAndBlackjack
             Table house = (Table)e.Parameter;
             House.PackNumber = house.PackNumber;
             House.StakeSize = house.StakeSize;
-
             try
             {
                 House.Deal();
-            }
-            catch
+            } catch
             {
-                DebugScreen.Text += "Exception happened.";
+                DebugScreen.Text += "Could not deal\n";
             }
             base.OnNavigatedTo(e);
         }
-
+        // Deal buttoni on vain debugausta varten
         private void Deal_Click(object sender, RoutedEventArgs e)
         {
             DebugScreen.Text = "";
@@ -71,7 +69,7 @@ namespace HookersAndBlackjack
 
         private void Hit_Click(object sender, RoutedEventArgs e)
         {
-
+            House.Hit();
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)

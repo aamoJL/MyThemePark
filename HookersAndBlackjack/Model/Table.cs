@@ -15,6 +15,7 @@ namespace HookersAndBlackjack.Model
         public int PackNumber { get; set; }
         public int StakeSize { get; set; }
         private Random rand = new Random();
+
         // DebugMessage on tässä debuggausta varten. Mietin että tätä voisi käyttää
         // palauttamaan stringin erillistä Debug luokkaa varten. 
         public string DebugMessage { get; set; }
@@ -100,7 +101,7 @@ namespace HookersAndBlackjack.Model
                 Clubs.Add(kortti);
             }
 
-            //Lisätään kaikki maat pakkaan ja lisätään
+            //Lisätään kaikki maat pakkaan ja kerrotaan menu ikkunan PackNumberilla
             for (ushort i = 0; i < PackNumber; i++)
             {
                 Pack.AddRange(Spades);
@@ -109,7 +110,7 @@ namespace HookersAndBlackjack.Model
                 Pack.AddRange(Clubs);
             }
 
-            //Fisher-Yates sekoitus
+            // Fisher-Yates sekoitus
             ushort n = (ushort)Pack.Count;
             while (n > 1)
             {
@@ -119,6 +120,7 @@ namespace HookersAndBlackjack.Model
                 Pack[k] = Pack[n];
                 Pack[n] = T;
             }
+            // Korttien siirto käteen
             ushort x = (ushort)Pack.Count;
             for (n = 0; n < 2; n++)
             {
@@ -126,14 +128,52 @@ namespace HookersAndBlackjack.Model
                 Hand.Add(Pack[x]);
                 Pack.RemoveAt(x);
             }
-
-            // Printtaus DebugMessageen.
+            // Printtaus DebugMessageen. Mä ehkä haluan luoda tästä erillisen luokan.
             DebugMessage += "Pack count: " + Pack.Count + "\n";
             DebugMessage += "Hand count: " + Hand.Count + "\n";
 
             foreach (Kortti k in Hand)
             {
                 DebugMessage += k.ToString();
+            }
+        }
+
+        public void Hit()
+        {
+            DebugMessage = "";
+            ushort x;
+            try
+            {
+                x = (ushort)(Pack.Count - 1);
+                Hand.Add(Pack[x]);
+                Pack.RemoveAt(x);
+            } catch
+            {
+                DebugMessage += "Could not edit lists.\n";
+                DebugMessage += "Printing Hand and Pack count > \n";
+            }
+
+            // Kaikki tästä alaspäin toimii niinkuin pitääkin. 
+            try
+            {
+                // Printtaus DebugMessageen. Mä ehkä haluan luoda tästä erillisen luokan.
+                DebugMessage += "Pack count: " + Pack.Count + "\n";
+                DebugMessage += "Hand count: " + Hand.Count + "\n";
+            }
+            catch
+            {
+                DebugMessage += "Something wrong with DebugMessage.\n";
+            }
+            
+            try
+            {
+                foreach (Kortti k in Hand)
+                {
+                    DebugMessage += k.ToString();
+                }
+            } catch
+            {
+                DebugMessage = "Could not print cards.\n";
             }
         }
 
