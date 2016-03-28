@@ -11,6 +11,9 @@ namespace HookersAndBlackjack.Model
 {
     class Table
     {
+        // Kokeillaan voinko luoda jo BlackjackMenussa ton olion ja passata sitä sitten tänne.
+        public int PackNumber { get; set; }
+        public int StakeSize { get; set; }
         private Random rand = new Random();
         // DebugMessage on tässä debuggausta varten. Mietin että tätä voisi käyttää
         // palauttamaan stringin erillistä Debug luokkaa varten. 
@@ -28,8 +31,8 @@ namespace HookersAndBlackjack.Model
         //Ylimääräinen kortti. Sekoitusta varten.
         private Kortti T = new Kortti();
         
-        // Tämä kutsutaan sivun avautuessa. Avaa popup ikkunan jonne tiedot laitetaan. Tai peritään.
-        public async void Start ()
+        // Tätä voi käyttää kun halutaan antaa infoa käyttäkälle popup ikkunassa. 
+        public async void Popup ()
         {
             // create the message dialog and set its content
             var messageDialog = new MessageDialog(
@@ -61,7 +64,7 @@ namespace HookersAndBlackjack.Model
             Debug.WriteLine("The '" + command.Label + "' command has been selected.");
         }
 
-        public void Deal (ushort NumberOfPacks)
+        public void Deal ()
         {
             Spades.Clear();
             Hearts.Clear();
@@ -98,7 +101,7 @@ namespace HookersAndBlackjack.Model
             }
 
             //Lisätään kaikki maat pakkaan ja lisätään
-            for (ushort i = 0; i < NumberOfPacks; i++)
+            for (ushort i = 0; i < PackNumber; i++)
             {
                 Pack.AddRange(Spades);
                 Pack.AddRange(Hearts);
@@ -135,5 +138,10 @@ namespace HookersAndBlackjack.Model
         }
 
         public Table() { }
+        public Table(int packnumber, int stacksize)
+        {
+            PackNumber = packnumber;
+            StakeSize = stacksize;
+        }
     }
 }

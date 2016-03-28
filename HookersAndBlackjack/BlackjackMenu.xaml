@@ -18,25 +18,27 @@
         <!--First row-->
         <TextBlock FontSize="20" Margin="5" Grid.Row="0">Number of packs:</TextBlock>
         <ComboBox x:Name="PackNumber" FontSize="20" Margin="5" Width="150" Grid.Row="0" HorizontalAlignment="Right">
-            <ComboBoxItem Name="N1">1</ComboBoxItem>
-            <ComboBoxItem Name="N2">2</ComboBoxItem>
-            <ComboBoxItem Name="N3">3</ComboBoxItem>
-            <ComboBoxItem Name="N4">4</ComboBoxItem>
-            <ComboBoxItem Name="N5">5</ComboBoxItem>
-            <ComboBoxItem Name="N6">6</ComboBoxItem>
-            <ComboBoxItem Name="N7">7</ComboBoxItem>
-            <ComboBoxItem Name="N8">8</ComboBoxItem>
+            <x:String>1</x:String>
+            <x:String>2</x:String>
+            <x:String>3</x:String>
+            <x:String>4</x:String>
+            <x:String>5</x:String>
+            <x:String>6</x:String>
+            <x:String>7</x:String>
+            <x:String>8</x:String>
         </ComboBox>
         <!--Second row-->
         <TextBlock FontSize="20" Margin="5" Grid.Row="1" >Stake size:</TextBlock>
         <ComboBox x:Name="StakeSize" FontSize="20" Margin="5" Width="150" Grid.Row="1" HorizontalAlignment="Right">
-            <ComboBoxItem Name="C10">10</ComboBoxItem>
-            <ComboBoxItem Name="C50">50</ComboBoxItem>
-            <ComboBoxItem Name="C100">100</ComboBoxItem>
-            <ComboBoxItem Name="C1000">1000</ComboBoxItem>
-            <ComboBoxItem Name="C10000">10000</ComboBoxItem>
-            <ComboBoxItem Name="C100000">100000</ComboBoxItem>
+            <x:String>1</x:String>
+            <x:String>2</x:String>
+            <x:String>5</x:String>
+            <x:String>10</x:String>
+            <x:String>25</x:String>
+            <x:String>50</x:String>
         </ComboBox>
+        <!--Third row-->
+        <TextBlock x:Name="DebugScreen" FontSize="20" Margin="5" Grid.Row="2" TextWrapping="Wrap"></TextBlock>
         <!--Last row-->
         <Button x:Name="Back" FontSize="20" Margin="5" Grid.Row="4" Click="Back_Click">Back</Button>
         <Button x:Name="Play" FontSize="20" Margin="5" Grid.Row="4" HorizontalAlignment="Right" Click="Play_Click">Play</Button> 

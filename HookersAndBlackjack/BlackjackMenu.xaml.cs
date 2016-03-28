@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
+using HookersAndBlackjack.Model;
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace HookersAndBlackjack
@@ -25,12 +26,26 @@ namespace HookersAndBlackjack
         public BlackjackMenu()
         {
             this.InitializeComponent();
+            this.NavigationCacheMode = NavigationCacheMode.Enabled;
         }
 
         private void Play_Click(object sender, RoutedEventArgs e)
         {
-            // lisää ja navigoi uudelle sivulle.
-            this.Frame.Navigate(typeof(Blackjack));
+            Table House = new Table();
+            DebugScreen.Text += PackNumber.SelectedValue.ToString();
+            DebugScreen.Text += StakeSize.SelectedItem.ToString();
+            try
+            {
+                House.PackNumber = int.Parse(PackNumber.SelectedItem.ToString());
+                House.StakeSize = int.Parse(StakeSize.SelectedItem.ToString());
+
+                // Lisää ja navigoi uudelle sivulle. Tiedetään että toimii.
+                // Laitetaan tänne jotta debugaus toimii järjestelmällisesti.
+                this.Frame.Navigate(typeof(Blackjack), House);
+            } catch
+            {
+                DebugScreen.Text += "Error while trying to save values from ComboBoxes\n";
+            }
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)

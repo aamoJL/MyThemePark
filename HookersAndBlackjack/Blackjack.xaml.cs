@@ -24,19 +24,37 @@ namespace HookersAndBlackjack
     /// </summary>
     public sealed partial class Blackjack : Page
     {
-        private ushort PackNumber;
         private Table House = new Table();
+
         public Blackjack()
         {
             this.InitializeComponent();
-            House.Start();
-            House.Deal(1);
+            // House.Start();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if (e.Parameter is Table)
+            { DebugScreen.Text += "Jotain Tapahtuu"; }
+            Table house = (Table)e.Parameter;
+            House.PackNumber = house.PackNumber;
+            House.StakeSize = house.StakeSize;
+
+            try
+            {
+                House.Deal();
+            }
+            catch
+            {
+                DebugScreen.Text += "Exception happened.";
+            }
+            base.OnNavigatedTo(e);
         }
 
         private void Deal_Click(object sender, RoutedEventArgs e)
         {
             DebugScreen.Text = "";
-            House.Deal(1);
+            House.Deal();
         }
 
         private void DebugButton_Click(object sender, RoutedEventArgs e)
