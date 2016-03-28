@@ -12,51 +12,28 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using Windows.UI.Popups;
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
-using HookersAndBlackjack.Model;
+// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace HookersAndBlackjack
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Blackjack : Page
+    public sealed partial class BlackjackMenu : Page
     {
-        private ushort PackNumber;
-        private Table House = new Table();
-        public Blackjack()
+        public BlackjackMenu()
         {
             this.InitializeComponent();
-            House.Start();
-            House.Deal(1);
         }
 
-        private void Deal_Click(object sender, RoutedEventArgs e)
+        private void Play_Click(object sender, RoutedEventArgs e)
         {
-            DebugScreen.Text = "";
-            House.Deal(1);
+            // lisää ja navigoi uudelle sivulle.
+            this.Frame.Navigate(typeof(Blackjack));
         }
 
-        private void DebugButton_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                DebugScreen.Text = House.DebugMessage;
-            }
-            catch
-            {
-                DebugScreen.Text = "No Data";
-            }
-        }
-
-        private void Hit_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BackButton_Click(object sender, RoutedEventArgs e)
+        private void Back_Click(object sender, RoutedEventArgs e)
         {
             // get root frame (which shows pages)
             Frame rootFrame = Window.Current.Content as Frame;

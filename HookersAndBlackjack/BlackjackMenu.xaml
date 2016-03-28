@@ -1,0 +1,44 @@
+﻿<Page
+    x:Class="HookersAndBlackjack.BlackjackMenu"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HookersAndBlackjack"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <!--First row-->
+        <TextBlock FontSize="20" Margin="5" Grid.Row="0">Number of packs:</TextBlock>
+        <ComboBox x:Name="PackNumber" FontSize="20" Margin="5" Width="150" Grid.Row="0" HorizontalAlignment="Right">
+            <ComboBoxItem Name="N1">1</ComboBoxItem>
+            <ComboBoxItem Name="N2">2</ComboBoxItem>
+            <ComboBoxItem Name="N3">3</ComboBoxItem>
+            <ComboBoxItem Name="N4">4</ComboBoxItem>
+            <ComboBoxItem Name="N5">5</ComboBoxItem>
+            <ComboBoxItem Name="N6">6</ComboBoxItem>
+            <ComboBoxItem Name="N7">7</ComboBoxItem>
+            <ComboBoxItem Name="N8">8</ComboBoxItem>
+        </ComboBox>
+        <!--Second row-->
+        <TextBlock FontSize="20" Margin="5" Grid.Row="1" >Stake size:</TextBlock>
+        <ComboBox x:Name="StakeSize" FontSize="20" Margin="5" Width="150" Grid.Row="1" HorizontalAlignment="Right">
+            <ComboBoxItem Name="C10">10</ComboBoxItem>
+            <ComboBoxItem Name="C50">50</ComboBoxItem>
+            <ComboBoxItem Name="C100">100</ComboBoxItem>
+            <ComboBoxItem Name="C1000">1000</ComboBoxItem>
+            <ComboBoxItem Name="C10000">10000</ComboBoxItem>
+            <ComboBoxItem Name="C100000">100000</ComboBoxItem>
+        </ComboBox>
+        <!--Last row-->
+        <Button x:Name="Back" FontSize="20" Margin="5" Grid.Row="4" Click="Back_Click">Back</Button>
+        <Button x:Name="Play" FontSize="20" Margin="5" Grid.Row="4" HorizontalAlignment="Right" Click="Play_Click">Play</Button> 
+    </Grid>
+</Page>

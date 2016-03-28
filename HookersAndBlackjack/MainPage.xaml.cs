@@ -37,7 +37,7 @@ namespace HookersAndBlackjack
         private void BlackjackButton_Click(object sender, RoutedEventArgs e)
         {
             // lisää ja navigoi uudelle sivulle.
-            this.Frame.Navigate(typeof(Blackjack));
+            this.Frame.Navigate(typeof(BlackjackMenu));
         }
     }
 }

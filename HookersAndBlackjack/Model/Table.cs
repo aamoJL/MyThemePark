@@ -12,6 +12,8 @@ namespace HookersAndBlackjack.Model
     class Table
     {
         private Random rand = new Random();
+        // DebugMessage on tässä debuggausta varten. Mietin että tätä voisi käyttää
+        // palauttamaan stringin erillistä Debug luokkaa varten. 
         public string DebugMessage { get; set; }
 
         //Jokainen maa on oma lista
@@ -30,12 +32,17 @@ namespace HookersAndBlackjack.Model
         public async void Start ()
         {
             // create the message dialog and set its content
-            var messageDialog = new MessageDialog("You thought your DDOS attack would succeed, it did not. You thought you could beat us, you can not. You can only hope to contain us, and fail.");
-            // add commands and set theur callbacks; both buttons use the same callback function
+            var messageDialog = new MessageDialog(
+                "You thought your DDOS attack would succeed, it did not." +
+                "You thought you could beat us, you can not." +
+                "You can only hope to contain us, and fail.");
+
+            messageDialog.Title = "Title";
+            
+            // add commands and set their callbacks; both buttons use the same callback function
             messageDialog.Commands.Add(new UICommand(
                 "Ok",
                 new UICommandInvokedHandler(this.CommandInvokedHandler)));
-
             messageDialog.Commands.Add(new UICommand(
                 "Cancel",
                 new UICommandInvokedHandler(this.CommandInvokedHandler)));
@@ -117,6 +124,7 @@ namespace HookersAndBlackjack.Model
                 Pack.RemoveAt(x);
             }
 
+            // Printtaus DebugMessageen.
             DebugMessage += "Pack count: " + Pack.Count + "\n";
             DebugMessage += "Hand count: " + Hand.Count + "\n";
 
