@@ -16,20 +16,28 @@ namespace HookersAndBlackjack.Model
         public int StakeSize { get; set; }
         private Random rand = new Random();
 
+        // Dummy pelaaja
+        Foe Dummy = new Foe();
+
         // DebugMessage on tässä debuggausta varten. Mietin että tätä voisi käyttää
         // palauttamaan stringin erillistä Debug luokkaa varten. 
         public string DebugMessage { get; set; }
 
-        //Jokainen maa on oma lista
+        // Jokainen maa on oma lista
         private List<Kortti> Spades = new List<Kortti>();
         private List<Kortti> Hearts = new List<Kortti>();
         private List<Kortti> Diamonds = new List<Kortti>();
         private List<Kortti> Clubs = new List<Kortti>();
-        //Pakka on myös lista, johon myöhemmin muut listat lisätään.
+        // Pakka on myös lista, johon myöhemmin muut listat lisätään.
         private List<Kortti> Pack = new List<Kortti>();
-        //Käsi
+        /*
+        Käsi. Tämä siirretään Foe luokkaan. Tähän listaan pääsee käsiksi
+        Foe luokan olion metodeilla. Tämä tehdään näin jotta
+        Foe luokan oliot voidaan tunkea listaan, jolloin pelaajien määrää
+        voidaan hallita erikseen BlackjackMenu:sta.
+        */
         private List<Kortti> Hand = new List<Kortti>();
-        //Ylimääräinen kortti. Sekoitusta varten.
+        // Ylimääräinen kortti. Sekoitusta varten.
         private Kortti T = new Kortti();
         
         // Tätä voi käyttää kun halutaan antaa infoa käyttäkälle popup ikkunassa. 
@@ -58,13 +66,14 @@ namespace HookersAndBlackjack.Model
 
             await messageDialog.ShowAsync();
         }
-
+        //Kuuluu Popup metodiin.
         private void CommandInvokedHandler(IUICommand command)
         {
             // Display message showing the label of the command that was invoked
             Debug.WriteLine("The '" + command.Label + "' command has been selected.");
         }
-
+        
+        // Jakaa kortit
         public void Deal ()
         {
             Spades.Clear();
@@ -138,8 +147,11 @@ namespace HookersAndBlackjack.Model
             }
         }
 
+        // Tämä ei kuulu tänne. Siirretään Foe luokkaan.
         public void Hit()
         {
+            // Muokkaa tätä siten, että pöydän pakasta voidaan ottaa kortteja
+            // ja lisätä niitä pelaajan pakkaan.
             DebugMessage = "";
             ushort x;
             try
@@ -174,6 +186,22 @@ namespace HookersAndBlackjack.Model
             } catch
             {
                 DebugMessage = "Could not print cards.\n";
+            }
+            
+        }
+
+        // Tämä tarkistaa onko yhteen laskettu arvo yli 21.
+        // Ei kuulu tänne. Siirretään Foe luokkaan.
+        public void Checker()
+        {
+            int u = 0;
+            foreach (Kortti k in Hand)
+            {
+                u += k.Number;
+            }
+            if (u > 21)
+            {
+                Popup();
             }
         }
 

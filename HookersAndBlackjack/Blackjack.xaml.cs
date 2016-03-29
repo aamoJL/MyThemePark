@@ -25,6 +25,7 @@ namespace HookersAndBlackjack
     public sealed partial class Blackjack : Page
     {
         private Table House = new Table();
+        private bool DebugBool = false;
 
         public Blackjack()
         {
@@ -42,6 +43,7 @@ namespace HookersAndBlackjack
             try
             {
                 House.Deal();
+                house.Checker();
             } catch
             {
                 DebugScreen.Text += "Could not deal\n";
@@ -50,26 +52,37 @@ namespace HookersAndBlackjack
         }
         // Deal buttoni on vain debugausta varten
         private void Deal_Click(object sender, RoutedEventArgs e)
-        {
-            DebugScreen.Text = "";
+        { 
             House.Deal();
+            House.Checker();
         }
 
         private void DebugButton_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if (DebugBool == false)
             {
-                DebugScreen.Text = House.DebugMessage;
+                try
+                {
+                    DebugScreen.Text = House.DebugMessage;
+                    DebugBool = true;
+                }
+                catch
+                {
+                    DebugScreen.Text = "No Data";
+                    DebugBool = true;
+                }
             }
-            catch
+            else
             {
-                DebugScreen.Text = "No Data";
+                DebugScreen.Text = "";
+                DebugBool = false;
             }
         }
 
         private void Hit_Click(object sender, RoutedEventArgs e)
         {
             House.Hit();
+            House.Checker();
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
