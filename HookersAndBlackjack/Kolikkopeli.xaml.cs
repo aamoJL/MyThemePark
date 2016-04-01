@@ -24,6 +24,8 @@ namespace HookersAndBlackjack
     public sealed partial class Kolikkopeli : Page
     {
         KPeli kolikkopeli = new KPeli();
+
+        //Voitetut rahat jotka siirretään tilille
         int winnings = 0;
         //Player player = "valittu pelaaja classi";
 
@@ -32,106 +34,49 @@ namespace HookersAndBlackjack
             this.InitializeComponent();
         }
 
-        //mikähän tämä on xD
-        private void textBox_TextChanged(System.Object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        //Rullan pyöräytys
+        // Play napin painaminen, pelin aloitus
         private void button_Play_Click(object sender, RoutedEventArgs e)
         {
-            /*
-            if (player.bet(int.Parse(textBlock_Bet.Text)) == true)
+            int bet = int.Parse(textBlock_Bet.Text);
+
+            //tarkistus, riittääkö rahat
+            if (kolikkopeli.bet(int.Parse(textBlock_Bet.Text)) == true)
             {
-                winnings = 0;
-                //button_Double.Disabled
-                int bet = int.Parse(textBlock_Bet.Text);
-                string prize = kolikkopeli.Draw();
-                int prize_int = int.Parse(prize);
+
+                //Rulluen pyöräytys
+                int comb = kolikkopeli.Play(); //--> rullien combinaatio
+
+                //Voitot/Häviöt
+                winnings = kolikkopeli.Win(comb, bet);
 
                 //Kuvien vaihto
-                Images(int.Parse(prize[0].ToString()), image1);
-                Images(int.Parse(prize[1].ToString()), image2);
-                Images(int.Parse(prize[2].ToString()), image3);
-                
-                //Voitot
-                if (prize_int == 555)
-                {
-                    winnings = bet * 1;
-                    textBlock_Log.Text += "You Won" + winnings+". Do You want to double?";
-                    //player.AddMoney(winnings);
-                    //button_Double.Visible
-
-                    
-                }
-                else if (prize_int == 444)
-                {
-                    winnings = bet * 2;
-                    textBlock_Log.Text += "You Won" + winnings+". Do You want to double?";
-                    //player.AddMoney(winnings);
-                    //button_Double.Visible
-                }
-                else if (prize_int == 333)
-                {
-                    winnings = bet * 5;
-                    textBlock_Log.Text += "You Won" + winnings + ". Do You want to double?";
-                    //player.AddMoney(winnings);
-                    //button_Double.Visible
-                }
-                else if (prize_int == 222)
-                {
-                    winnings = bet * 10;
-                    textBlock_Log.Text += "You Won" + winnings + ". Do You want to double?";
-                    //player.AddMoney(winnings);
-                    //button_Double.Visible
-                }
-                else if (prize_int == 111)
-                {
-                    winnings = bet * 25;
-                    textBlock_Log.Text += "You Won" + winnings + ". Do You want to double?";
-                    //player.AddMoney(winnings);
-                    //button_Double.Visible
-                }
-                else
-                {
-                    textBlock_Log.Text += "You lost"+bet;
-                    //button_Double.Disabled
-                }
+                /*
+                Images(int.Parse(comb.ToString().Substring(0,1)), image1);
+                Images(int.Parse(comb.ToString().Substring(1,2)), image2);
+                Images(int.Parse(comb.ToString().Substring(2,3)), image3);
+                */
             }
             else
             {
-                textBlock_Log.Text += "Error: Not enough money!";
+                textBlock_Log.Text += "\nError: Not enough money!";
             }
-        */
         }
 
+        /*
         //Kuvarullan kuvien vaihto
-        private void Images(int i, Image img)
+        private void Images(int combination, Image img)
         {
-            /*
-                if (i == 5)
-                {
-                    img = kuva5;
-                }
-                else if (i == 4)
-                {
-                    img = kuva4;
-                }
-                else if (i == 3)
-                {
-                    img = kuva3;
-                }
-                else if (i == 2)
-                {
-                    img = kuva2;
-                }
-                else
-                {
-                    img = kuva1;
-                }
-            */
+            switch (combination)
+            {
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                default:
+            }
         }
+        */
 
         private void backButton_Click(object sender, RoutedEventArgs e)
         {

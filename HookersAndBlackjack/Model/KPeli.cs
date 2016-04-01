@@ -8,70 +8,52 @@ namespace HookersAndBlackjack.Model
 {
     public class KPeli
     {
-        //random numerogeneraattori
-        public int Rand(int first, int last)
-        {
-            Random random = new Random();
-            int rnd = random.Next(first - last);
-            return rnd;
-        }
-        //Play
-        public string Draw()
-        {
-            /*
-            //Take bet
-            if (Player.money >= bet)
-            {
-                Pelaaja.money -= bet;
-            }
-            else { TextBlock_Log.Text += "\nError: Not enough money."; }
-            */
+        public Wheel rulla { get; set; }
 
-            //Select Random
+        /// <summary>
+        /// Palauttaa 3 rullan numerosarjan esim. 134
+        /// </summary>
+        public int Play()
+        {
+            //Spin Wheels
+            int numero1 = rulla.Spin(200);
+            int numero2 = rulla.Spin(200);
+            int numero3 = rulla.Spin(200);
 
-            //Draw
-            int rnd = Rand(1, 201);
-            if (160 < rnd && rnd < 179)
+            //Check combinations
+            if (numero1 == numero2 && numero3 == numero1 | numero1 != 0)
             {
-                return "555";
-            }
-            else if (178 < rnd && rnd < 189)
-            {
-                return "444";
-            }
-            else if (188 < rnd && rnd < 196)
-            {
-                return "333";
-            }
-            else if (195 < rnd && rnd < 200)
-            {
-                return "222";
-            }
-            else if (rnd == 200)
-            {
-                return "111";
+                switch (numero1 + numero2 + numero3)
+                {
+                    case 3: return 111;
+                    case 6: return 222;
+                    case 9: return 333;
+                    case 12: return 444;
+                    case 15: return 555;
+                    default: return 0;
+                }
             }
             else
             {
-                string s = "";
-                for (int i = 0; i < 3; i++)
-                {
-                    rnd = Rand(1,6);
-                    if (s.Contains(rnd.ToString()) == true)
-                    {
-                        i--;
-                    }
-                    else
-                    {
-                        s += "i";
-                        s += rnd;
-                    }
-                }
-                return s;
+                return int.Parse(numero1.ToString() + numero2.ToString() + numero3.ToString());
             }
         }
-        public int Double()
+
+
+        /// <summary>
+        /// Panoksen asettaminen
+        /// </summary>
+        internal bool bet(int v)
         {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Tuplaus, palauttaa 1=onnistui 0=epäonnistui
+        /// </summary>
+        public void Double()
+        {
+            /*
             int rnd = Rand(1, 101);
             if(rnd < 25)
             {
@@ -81,20 +63,36 @@ namespace HookersAndBlackjack.Model
             {
                 return 0;
             }
+        */
+        }
+
+        /// <summary>
+        /// Tarkistaa voitot, palauttaa bet * x
+        /// </summary>
+        public int Win(int numero, int bet)
+        {
+            switch (numero)
+            {
+                case 111: return bet * 25;
+                case 222: return bet * 10;
+                case 333: return bet * 5;
+                case 444: return bet * 2;
+                case 555: return bet;
+                default: return bet - (2 * bet);
+            }
         }
     }
 }
 
 //voittotaulukko
 /*
-1. 25x	0.5%	1
-2. 10x	2%		4
-3. 5x	3.5%	7
-4. 2x	5%		10
-5. 1x	9%		18
-6. 0x	80%		160
+1. 25x	1/28
+2. 10x	3/28
+3. 5x   6/28
+4. 2x	8/28
+5. 1x	10/28
 
 Double 24%
 
-160-178-188-195-199-200
+0-10-18-24-27-28
 */

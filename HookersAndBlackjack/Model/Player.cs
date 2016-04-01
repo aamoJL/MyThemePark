@@ -12,42 +12,17 @@ namespace HookersAndBlackjack.Model
         /// <summary>
         /// 1 = Human, 4 = House, 2 = Easy, 3 = Hard
         /// </summary>
-        private int AI { get; set; }
+        public int AI { get; set; }
+        public int Money { get; set; }
+        public int Chips { get; set; }
+        public int Loses { get; set; }
+        public int Games { get; set; }
+        public int Loans { get; set; }
 
         public Player(string name, int ai)
         {
             Name = name;
             AI = ai;
-        }
-
-        private void Surrender()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void Split()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void DoubleDown()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void Stand()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void Hit()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void Raise()
-        {
-            throw new NotImplementedException();
         }
     }
 
