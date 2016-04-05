@@ -8,9 +8,10 @@ namespace HookersAndBlackjack.Model
 {
     /// <summary>
     /// Foe luokka toimii place holderina lopullista pelaaja/vastustaja luokkaa varten.
+    /// Tänne kokeellinen tavara.
     /// </summary>
     class Foe
     {
-        public List<Kortti> Hand = new List<Kortti>();
+        public List<Kortti> Hand = new List<Kortti>();  
     }
 }

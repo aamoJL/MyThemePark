@@ -40,7 +40,8 @@ namespace HookersAndBlackjack.Model
         // Ylimääräinen kortti. Sekoitusta varten.
         private Kortti T = new Kortti();
         
-        // Tätä voi käyttää kun halutaan antaa infoa käyttäkälle popup ikkunassa. 
+        // Tätä voi käyttää kun halutaan antaa infoa käyttäkälle popup ikkunassa.
+        // Vois laittaa erilliseen luokkaan.
         public async void Popup ()
         {
             // create the message dialog and set its content
