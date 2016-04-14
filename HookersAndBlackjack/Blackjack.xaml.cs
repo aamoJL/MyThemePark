@@ -31,6 +31,14 @@ namespace HookersAndBlackjack
         {
             this.InitializeComponent();
             // House.Start();
+            House.Dummy.Intelligence = false;
+            for (int i = 0; i < 2; i++)
+            {
+                // Jos laittaisit loopin Foe luokan sisään. Jokainen pelaaja 
+                // on listassa. Lista sekoitetaan <- Pelaaja järjestys muuttuu
+                // Kun lista menee pelaajan kohalle
+                Table h;
+            }
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

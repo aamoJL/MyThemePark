@@ -17,7 +17,9 @@ namespace HookersAndBlackjack.Model
         private Random rand = new Random();
 
         // Dummy pelaaja
-        Foe Dummy = new Foe();
+        public Foe Dummy = new Foe();
+        // Pelaaja lista
+        public List<Foe> PlayerList = new List<Foe>();
 
         // DebugMessage on tässä debuggausta varten. Mietin että tätä voisi käyttää
         // palauttamaan stringin erillistä Debug luokkaa varten. 
@@ -30,8 +32,8 @@ namespace HookersAndBlackjack.Model
         private List<Kortti> Clubs = new List<Kortti>();
         // Pakka on myös lista, johon myöhemmin muut listat lisätään.
         private List<Kortti> Pack = new List<Kortti>();
-        /*
-        Käsi. Tämä siirretään Foe luokkaan. Tähän listaan pääsee käsiksi
+        /* Käsi. 
+        Tämä siirretään Foe luokkaan. Tähän listaan pääsee käsiksi
         Foe luokan olion metodeilla. Tämä tehdään näin jotta
         Foe luokan oliot voidaan tunkea listaan, jolloin pelaajien määrää
         voidaan hallita erikseen BlackjackMenu:sta.
